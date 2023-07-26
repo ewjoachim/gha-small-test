@@ -9,6 +9,7 @@ concurrency:
 
 jobs:
   check-e2e-cache:
+    if: false
     name: Test whether e2e tests have already run
     runs-on: ubuntu-latest
     outputs:
