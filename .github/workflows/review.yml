@@ -1,0 +1,17 @@
+name: End-to-end tests for external PRs
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+concurrency:
+  group: ${{ github.event_name }}-${{ github.ref }}
+
+jobs:
+  check-e2e-cache:
+    name: Test whether e2e tests have already run
+    runs-on: ubuntu-latest
+    outputs:
+      cache-hit: ${{ steps.cache.outputs.cache-hit }}
+    steps:
+    - run: echo "yay"
